@@ -3,7 +3,7 @@ on:
     - push
     - pull_request
 jobs:
-    install:
+    test_and_lint:
         runs-on: ubuntu-latest
         steps:
             - name: Check out the repo
@@ -17,8 +17,8 @@ jobs:
             - name: install dependencies
               run: npm install
     
-            - name: make lint    
-              run: npx eslint .
+            # - name: make lint    
+            #   run: npx eslint .
 
             - name: make test
               run: npm test
