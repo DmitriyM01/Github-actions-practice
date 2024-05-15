@@ -7,9 +7,10 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Check out the repo
-              uses: actions/checkout@v3
+              uses: actions/checkout@v4
             - name: install node
-              uses: actions/setup-node@v4        
+              uses: actions/setup-node@v4
+            - run: npm install
     install:
         runs-on: ubuntu-latest
         steps:
