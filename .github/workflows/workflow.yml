@@ -11,6 +11,7 @@ jobs:
     install:
         runs-on: ubuntu-latest
         steps:
+          - run: cd ../
           - name: install dependencies
             run: npm install
         needs: setup
