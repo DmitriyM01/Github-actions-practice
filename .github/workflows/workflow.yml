@@ -29,6 +29,17 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+        # Install ssh key
+      - name: Install SSH Key
+        uses: shimataro/ssh-key-action@v2.3.1
+        with:
+          key: "${{ secrets.SSH }}"
+          known_hosts: "just-a-placeholder-so-we-dont-get-errors"
+        
+      - name: Generate auth hosts
+        run: ssh-keyscan -H ${{ env.SERVER_HOST }} >> ~/.ssh/known_hosts
+
+
       - name: Copy files to server
         uses: appleboy/scp-action@master
         with:
@@ -36,7 +47,6 @@ jobs:
           username: ${{ secrets.SERVER_RNAME }}
           password: ${{ secrets.SERVER_PASSWORD }}
           port: ${{ secrets.SERVER_PORT }}
-          key: ${{ secrets.SSH }}
           rm: true
           source: "./src/index.js"
           target: "/home/admin/index.js"
