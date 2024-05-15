@@ -6,12 +6,13 @@ jobs:
     setup:
         runs-on: ubuntu-latest
         steps:
+            - name: Check out the repo
+              uses: actions/checkout@v3
             - name: install node
               uses: actions/setup-node@v4        
     install:
         runs-on: ubuntu-latest
         steps:
-          - run: cd ../
           - name: install dependencies
             run: npm install
         needs: setup
