@@ -37,7 +37,7 @@ jobs:
           password: ${{ secrets.SERVER_PASSWORD }}
           port: ${{ secrets.SERVER_PORT }}
           rm: true
-          source: "./src/index.html"
-          target: "/home/admin/index.html"
+          source: "./src/index.js"
+          target: "/home/admin/index.js"
 
           # docker run --name nginx -p 80:80 -v ~/index.html:/usr/share/nginx/html/index.html -d nginx
