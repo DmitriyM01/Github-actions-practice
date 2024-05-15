@@ -3,14 +3,21 @@ on:
     - push
     - pull_request
 jobs:
+    install:
+        runs-on: ubuntu-latest
+        steps:
+            - name: install dependencies
+              run: npm install
     lint:
         runs-on: ubuntu-latest
         steps:
             - name: make lint    
               run: npx eslint .
+        needs: install
 
     test:
         runs-on: ubuntu-latest
         steps:
             - name: make test
-              run: npm test 
+              run: npm test
+        needs: install
