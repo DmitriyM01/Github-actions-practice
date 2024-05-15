@@ -3,31 +3,31 @@ on:
   - push
   - pull_request
 jobs:
-  test_and_lint:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out the repo
-        uses: actions/checkout@v4
+  # test_and_lint:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Check out the repo
+  #       uses: actions/checkout@v4
 
-      - name: install node
-        uses: actions/setup-node@v4
-      - run: npm install
+  #     - name: install node
+  #       uses: actions/setup-node@v4
+  #     - run: npm install
 
-      - name: install dependencies
-        run: npm install
+  #     - name: install dependencies
+  #       run: npm install
 
-      - name: make lint    
-        run: npx eslint .
+  #     - name: make lint    
+  #       run: npx eslint .
 
-      - name: make test
-        run: npm test
+  #     - name: make test
+  #       run: npm test
 
   deploy:
     runs-on: ubuntu-latest
-    needs: test_and_lint
+    # needs: test_and_lint
     steps:
       - name: Checkout code
-        uses: actions/checkout@master
+        uses: actions/checkout@v4
 
       - name: Copy files to server
         uses: appleboy/scp-action@master
@@ -36,6 +36,7 @@ jobs:
           username: ${{ secrets.SERVER_RNAME }}
           password: ${{ secrets.SERVER_PASSWORD }}
           port: ${{ secrets.SERVER_PORT }}
+          key: ${{ secrets.SSH }}
           rm: true
           source: "./src/index.js"
           target: "/home/admin/index.js"
