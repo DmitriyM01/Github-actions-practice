@@ -1,0 +1,16 @@
+name: make lint, test and deploy
+on:
+    - push
+    - pull_request
+jobs:
+    lint:
+        runs-on: ubuntu-latest
+        steps:
+            - name: make lint    
+              run: npx eslint .
+
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: make test
+              run: npm test 
