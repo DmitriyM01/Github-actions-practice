@@ -1,3 +1,4 @@
+import { test, expect } from "@jest/globals";
 import sum from "../src/index.js";
 
 test('test_ONE', () => {
