@@ -7,7 +7,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: install node
-              uses: actions/install-node@v4
+              uses: actions/setup-node@v4
             - name: install dependencies
               run: npm install
     lint:
