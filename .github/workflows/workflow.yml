@@ -17,7 +17,7 @@ jobs:
         #   - run: cd ../
           - run: pwd
           - run: ls -la
-          - run: cd ""../""
+          - run: cd "../"
           - run: pwd
           - run: ls -la
           - name: install dependencies
