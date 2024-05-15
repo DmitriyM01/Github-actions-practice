@@ -3,13 +3,17 @@ on:
     - push
     - pull_request
 jobs:
-    install:
+    setup:
         runs-on: ubuntu-latest
         steps:
             - name: install node
-              uses: actions/setup-node@v4
-            - name: install dependencies
-              run: npm install
+              uses: actions/setup-node@v4        
+    install:
+        runs-on: ubuntu-latest
+        steps:
+          - name: install dependencies
+            run: npm install
+        needs: setup
     lint:
         runs-on: ubuntu-latest
         steps:
