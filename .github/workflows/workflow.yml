@@ -1,0 +1,25 @@
+name: make lint, test and deploy
+on:
+    - push
+    - pull_request
+jobs:
+    test_and_lint:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Check out the repo
+              uses: actions/checkout@v4
+            - name: install node
+              uses: actions/setup-node@v4
+            - run: npm install
+
+            - run: pwd
+            - run: ls -la
+            - name: install dependencies
+              run: npm install
+    
+            - name: make lint    
+              run: npx eslint .
+
+            - name: make test
+              run: npm test
+
