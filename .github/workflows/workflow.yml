@@ -15,6 +15,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
         #   - run: cd ../
+          - run: pwd
           - run: ls -la
           - name: install dependencies
             run: npm install
