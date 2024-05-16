@@ -47,7 +47,9 @@ jobs:
 
       - run: echo 'success'
       - run: ls -la
-      - run: ls -la ..
+      - run: ls -la ../..
+      - run: ls -la ../../..
+      - run: ls -la ../../../..
       - run: pwd
       # - name: Install SSH Key
       #   run: touch ~/.ssh/id_rsa && echo ${{ secrets.SSH }} >> ~/.ssh/id_rsa
