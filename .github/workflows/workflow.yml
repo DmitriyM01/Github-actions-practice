@@ -47,7 +47,7 @@ jobs:
 
       - run: echo 'success'
       - run: ls -la
-      - run: cd .ssh
+      - run: cd ..
       - run: ls -la
       - run: pwd
       # - name: Install SSH Key
