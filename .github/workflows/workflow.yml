@@ -46,9 +46,9 @@ jobs:
       #   run: ssh-keyscan -H ${{ secrets.SERVER_IP }} >> ~/.ssh/known_hosts
 
       - run: echo 'success'
-      - run: ls ~
+      - run: ls -la
       - run: cd .ssh
-      - run: ls
+      - run: ls -la
       - run: pwd
       # - name: Install SSH Key
       #   run: touch ~/.ssh/id_rsa && echo ${{ secrets.SSH }} >> ~/.ssh/id_rsa
