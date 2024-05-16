@@ -41,16 +41,16 @@ jobs:
         with:
           key: "${{ secrets.SSH }}"
           known_hosts: ${{ secrets.SERVER_IP }}
+
+      # - run: scp root@losst.pro:/home/root/index.html root@losst.pro:/home/root/www/
+
+      - name: Install SSH Key
+        run: mkdir ~/.ssh && touch ~/.ssh/id_rsa && echo ${{ secrets.SSH }} >> ~/.ssh/id_rsa
           
       # - name: Generate auth hosts
       #   run: ssh-keyscan -H ${{ secrets.SERVER_IP }} >> ~/.ssh/known_hosts
 
-      - run: echo 'success'
-      - run: ls -la
-      - run: ls -la ../..
-      - run: ls -la ../../..
-      - run: ls -la ../../../..
-      - run: pwd
+      # 
       # - name: Install SSH Key
       #   run: touch ~/.ssh/id_rsa && echo ${{ secrets.SSH }} >> ~/.ssh/id_rsa
         
